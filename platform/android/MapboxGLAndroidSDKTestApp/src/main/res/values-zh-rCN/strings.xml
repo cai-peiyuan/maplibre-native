@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">MapLibre Android SDK TestApp</string>
+    <string name="app_name">MapAbc Android SDK 样例程序</string>
     <string name="fps30">fps30</string>
     <string name="fps60">fps60</string>
-    <string name="this_is_an_empty_fragment">This is an empty Fragment</string>
+    <string name="this_is_an_empty_fragment">这是一个空白的 Fragment 组件</string>
 
     <!-- titles -->
-    <string name="activity_map_fragment_support">Support Map Fragment</string>
-    <string name="activity_map_fragment">Map Fragment</string>
-    <string name="activity_map_fragment_backstack">Backstack Map Fragment</string>
-    <string name="activity_multimap">Multiple Maps on Screen</string>
-    <string name="activity_add_bulk_markers">Add Markers In Bulk</string>
-    <string name="activity_animated_symbollayer">Animated SymbolLayer</string>
-    <string name="activity_dynamic_marker">Dynamic Marker</string>
-    <string name="activity_polyline">Polyline</string>
-    <string name="activity_polygon">Polygon</string>
-    <string name="activity_press_for_marker">Press Map For Marker</string>
-    <string name="activity_add_remove_markers">Zoom function with SymbolLayer</string>
-    <string name="activity_json_api">Add Markers From JSON API</string>
-    <string name="activity_info_window">Standard InfoWindow</string>
+    <string name="activity_map_fragment_support">Fragment 组件支持</string>
+    <string name="activity_map_fragment">Fragment 地图组件</string>
+    <string name="activity_map_fragment_backstack">Fragment 地图组件返回堆栈</string>
+    <string name="activity_multimap">多个地图</string>
+    <string name="activity_add_bulk_markers">批量添加标记</string>
+    <string name="activity_animated_symbollayer">SymbolLayer 动画</string>
+    <string name="activity_dynamic_marker">动态标记</string>
+    <string name="activity_polyline">线</string>
+    <string name="activity_polygon">面</string>
+    <string name="activity_press_for_marker">按下地图添加标记</string>
+    <string name="activity_add_remove_markers">使用 SymbolLayer 进行缩放功能</string>
+    <string name="activity_json_api">从 JSON API 添加标记</string>
+    <string name="activity_info_window">标准信息窗口</string>
     <string name="activity_infowindow_adapter">Custom InfoWindow</string>
     <string name="activity_dynamic_infowindow_adapter">Custom Dynamic InfoWindow</string>
     <string name="activity_camera_animation_types">Animation Types</string>
