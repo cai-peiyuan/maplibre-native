@@ -2,18 +2,18 @@
 <resources>
     <string name="category_basic">基本</string>
     <string name="category_annotation">注释</string>
-    <string name="category_camera">Camera</string>
-    <string name="category_custom_layer">Custom Layer</string>
-    <string name="category_fragment">Fragment</string>
-    <string name="category_imagegenerator">Image Generator</string>
-    <string name="category_infowindow">Info Window</string>
-    <string name="category_maplayout">Map Layout</string>
-    <string name="category_offline">Offline</string>
-    <string name="category_style">Styling</string>
-    <string name="category_features">Features</string>
-    <string name="category_storage">Storage</string>
-    <string name="category_textureview">Texture View</string>
-    <string name="category_location">Location</string>
-    <string name="category_integration">_Integration</string>
-    <string name="category_turf">Turf</string>
+    <string name="category_camera">照相机</string>
+    <string name="category_custom_layer">自定义图层</string>
+    <string name="category_fragment">碎片</string>
+    <string name="category_imagegenerator">图像生成器</string>
+    <string name="category_infowindow">信息窗口</string>
+    <string name="category_maplayout">地图布局</string>
+    <string name="category_offline">脱机</string>
+    <string name="category_style">造型</string>
+    <string name="category_features">功能</string>
+    <string name="category_storage">存储</string>
+    <string name="category_textureview">纹理视图</string>
+    <string name="category_location">地方</string>
+    <string name="category_integration">_集成</string>
+    <string name="category_turf">草皮</string>
 </resources>
