@@ -44,3 +44,12 @@ node_modules
 /bazel-*
 CMakeLists.txt.user
 CMakeFiles
+
+/platform/android/MapabcGLAndroidSDK/src/main/assets/sdk_versions/com.mapbox.mapboxsdk
+/platform/android/MapabcGLAndroidSDK/.cxx
+/platform/android/MapabcGLAndroidSDKTestApp/.cxx
+/platform/android/MapabcGLAndroidSDK/build
+/platform/android/MapabcGLAndroidSDKTestApp/build
+/platform/android/MapabcGLAndroidSDKTestApp/local.properties
+
+

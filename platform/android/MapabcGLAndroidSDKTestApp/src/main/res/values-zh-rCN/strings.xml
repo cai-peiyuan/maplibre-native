@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MapAbc Android SDK 样例程序</string>
+    <string name="fps30">fps30</string>
+    <string name="fps60">fps60</string>
+    <string name="this_is_an_empty_fragment">这是一个空白的 Fragment 组件</string>
+</resources>
