@@ -14,6 +14,6 @@
     <string name="category_storage">存储</string>
     <string name="category_textureview">纹理视图</string>
     <string name="category_location">地方</string>
-    <string name="category_integration">_集成</string>
+    <string name="category_integration">集成</string>
     <string name="category_turf">草皮</string>
 </resources>
