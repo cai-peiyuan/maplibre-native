@@ -32,7 +32,7 @@ open class MapLibreApplication : MultiDexApplication() {
 
     private fun initializeLogger() {
         Logger.setLoggerDefinition(TimberLogger())
-        if (com.mapabc.android.testapp.BuildConfig.DEBUG) {
+        if (BuildConfig.DEBUG) {
             Timber.plant(DebugTree())
         }
     }
@@ -58,10 +58,10 @@ open class MapLibreApplication : MultiDexApplication() {
     private fun initializeMapbox() {
         val apiKey = ApiKeyUtils.getApiKey(applicationContext)
         if (apiKey != null) {
-            com.mapabc.android.testapp.MapLibreApplication.Companion.validateApiKey(apiKey)
+            validateApiKey(apiKey)
         }
         MapLibre.getInstance(applicationContext, apiKey,
-            com.mapabc.android.testapp.MapLibreApplication.Companion.TILE_SERVER
+            TILE_SERVER
         )
         TileLoadingMeasurementUtils.setUpTileLoadingMeasurement()
         MapStrictMode.setStrictModeEnabled(true)
@@ -79,8 +79,8 @@ open class MapLibreApplication : MultiDexApplication() {
                 )
 
         private fun validateApiKey(apiKey: String) {
-            if (TextUtils.isEmpty(apiKey) || apiKey == com.mapabc.android.testapp.MapLibreApplication.Companion.DEFAULT_API_KEY) {
-                Timber.e(com.mapabc.android.testapp.MapLibreApplication.Companion.API_KEY_NOT_SET_MESSAGE)
+            if (TextUtils.isEmpty(apiKey) || apiKey == DEFAULT_API_KEY) {
+                Timber.e(API_KEY_NOT_SET_MESSAGE)
             }
         }
     }

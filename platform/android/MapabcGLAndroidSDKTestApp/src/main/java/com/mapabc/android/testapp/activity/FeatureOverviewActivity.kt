@@ -58,7 +58,7 @@ class FeatureOverviewActivity : AppCompatActivity() {
         if (savedInstanceState == null) {
             loadFeatures()
         } else {
-            features = savedInstanceState.getParcelableArrayList(com.mapabc.android.testapp.activity.FeatureOverviewActivity.Companion.KEY_STATE_FEATURES)
+            features = savedInstanceState.getParcelableArrayList(KEY_STATE_FEATURES)
             onFeaturesLoaded(features)
         }
     }
@@ -110,19 +110,19 @@ class FeatureOverviewActivity : AppCompatActivity() {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putParcelableArrayList(com.mapabc.android.testapp.activity.FeatureOverviewActivity.Companion.KEY_STATE_FEATURES, features as ArrayList<Feature>?)
+        outState.putParcelableArrayList(KEY_STATE_FEATURES, features as ArrayList<Feature>?)
     }
 
     private inner class LoadFeatureTask : AsyncTask<PackageInfo?, Void?, List<Feature>>() {
         protected override fun doInBackground(vararg p0: PackageInfo?): List<Feature>? {
             val features: MutableList<Feature> = ArrayList()
             val app = p0[0]
-            val packageName = com.mapabc.android.testapp.activity.FeatureOverviewActivity.javaClass.`package`.name
+            val packageName = FeatureOverviewActivity.javaClass.`package`.name
             val metaDataKey = getString(R.string.category)
             if (app != null) {
                 for (info in app.activities) {
                     if (info.labelRes != 0 && info.name.startsWith(packageName) &&
-                        info.name != com.mapabc.android.testapp.activity.FeatureOverviewActivity::class.java.name
+                        info.name != FeatureOverviewActivity::class.java.name
                     ) {
                         val label = getString(info.labelRes)
                         val description = resolveString(info.descriptionRes)
