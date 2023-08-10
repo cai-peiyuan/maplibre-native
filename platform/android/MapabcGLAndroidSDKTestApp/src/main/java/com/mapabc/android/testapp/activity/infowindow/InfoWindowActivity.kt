@@ -33,18 +33,22 @@ class InfoWindowActivity :
     OnInfoWindowCloseListener,
     OnInfoWindowClickListener,
     OnInfoWindowLongClickListener {
-    private lateinit var maplibreMap: MapLibreMap
+    private lateinit var mapabcMap: MapLibreMap
     private lateinit var mapView: MapView
     private var customMarker: Marker? = null
+
+    /**
+     * 地图长按事件
+     */
     private val mapLongClickListener = OnMapLongClickListener { point ->
         if (customMarker != null) {
             // Remove previous added marker
-            maplibreMap.removeAnnotation(customMarker!!)
+            mapabcMap.removeAnnotation(customMarker!!)
             customMarker = null
         }
 
         // Add marker on long click location with default marker image
-        customMarker = maplibreMap.addMarker(
+        customMarker = mapabcMap.addMarker(
             MarkerOptions()
                 .title("Custom Marker")
                 .snippet(
@@ -56,6 +60,9 @@ class InfoWindowActivity :
         true
     }
 
+    /**
+     * activity 创建事件
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_infowindow)
@@ -65,7 +72,7 @@ class InfoWindowActivity :
     }
 
     override fun onMapReady(maplibreMap: MapLibreMap) {
-        this.maplibreMap = maplibreMap
+        this.mapabcMap = maplibreMap
         maplibreMap.setStyle(Style.getPredefinedStyle("Streets")) { style: Style? ->
             addMarkers()
             addInfoWindowListeners()
@@ -73,25 +80,25 @@ class InfoWindowActivity :
     }
 
     private fun addMarkers() {
-        maplibreMap.addMarker(
+        mapabcMap.addMarker(
             MarkerOptions()
                 .title("Intersection")
                 .snippet("H St NW with 15th St NW")
                 .position(LatLng(38.9002073, -77.03364419))
         )
-        maplibreMap.addMarker(
+        mapabcMap.addMarker(
             MarkerOptions().title("Intersection")
                 .snippet("E St NW with 17th St NW")
                 .position(LatLng(38.8954236, -77.0394623))
         )
-        maplibreMap.addMarker(
+        mapabcMap.addMarker(
             MarkerOptions().title("The Ellipse").position(LatLng(38.89393, -77.03654))
         )
-        maplibreMap.addMarker(MarkerOptions().position(LatLng(38.89596, -77.03434)))
-        maplibreMap.addMarker(
+        mapabcMap.addMarker(MarkerOptions().position(LatLng(38.89596, -77.03434)))
+        mapabcMap.addMarker(
             MarkerOptions().snippet("Lafayette Square").position(LatLng(38.89949, -77.03656))
         )
-        val marker = maplibreMap.addMarker(
+        val marker = mapabcMap.addMarker(
             MarkerOptions()
                 .title("White House")
                 .snippet(
@@ -103,23 +110,23 @@ class InfoWindowActivity :
         )
 
         // open InfoWindow at startup
-        maplibreMap.selectMarker(marker)
+        mapabcMap.selectMarker(marker)
     }
 
     private fun addInfoWindowListeners() {
-        maplibreMap.onInfoWindowCloseListener = this
-        maplibreMap.addOnMapLongClickListener(mapLongClickListener)
-        maplibreMap.onInfoWindowClickListener = this
-        maplibreMap.onInfoWindowLongClickListener = this
+        mapabcMap.onInfoWindowCloseListener = this
+        mapabcMap.addOnMapLongClickListener(mapLongClickListener)
+        mapabcMap.onInfoWindowClickListener = this
+        mapabcMap.onInfoWindowLongClickListener = this
     }
 
     private fun toggleConcurrentInfoWindow(allowConcurrentInfoWindow: Boolean) {
-        maplibreMap.deselectMarkers()
-        maplibreMap.isAllowConcurrentMultipleOpenInfoWindows = allowConcurrentInfoWindow
+        mapabcMap.deselectMarkers()
+        mapabcMap.isAllowConcurrentMultipleOpenInfoWindows = allowConcurrentInfoWindow
     }
 
     private fun toggleDeselectMarkersOnTap(deselectMarkersOnTap: Boolean) {
-        maplibreMap.uiSettings.isDeselectMarkersOnTap = deselectMarkersOnTap
+        mapabcMap.uiSettings.isDeselectMarkersOnTap = deselectMarkersOnTap
     }
 
     override fun onInfoWindowClick(marker: Marker): Boolean {
@@ -163,8 +170,8 @@ class InfoWindowActivity :
 
     override fun onDestroy() {
         super.onDestroy()
-        if (maplibreMap != null) {
-            maplibreMap.removeOnMapLongClickListener(mapLongClickListener)
+        if (mapabcMap != null) {
+            mapabcMap.removeOnMapLongClickListener(mapLongClickListener)
         }
         mapView.onDestroy()
     }
