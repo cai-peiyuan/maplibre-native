@@ -16,6 +16,8 @@ public:
     virtual ~RenderableResource() = default;
     RenderableResource(const RenderableResource&) = delete;
     RenderableResource& operator=(const RenderableResource&) = delete;
+
+    virtual void bind() = 0;
 };
 
 class Renderable {
@@ -35,6 +37,8 @@ public:
     }
 
     virtual void wait() {}
+
+    bool operator!=(const Renderable& other) const { return resource.get() != other.resource.get(); }
 
 protected:
     Size size;

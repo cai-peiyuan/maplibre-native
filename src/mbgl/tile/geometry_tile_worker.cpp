@@ -351,6 +351,11 @@ void GeometryTileWorker::parse() {
 
     featureIndex = std::make_unique<FeatureIndex>(*data ? (*data)->clone() : nullptr);
 
+    // Avoid small reallocations for populated cells.
+    // If we had a total feature count, this could be based on that and the cell count.
+    constexpr auto estimatedElementsPerCell = 8;
+    featureIndex->reserve(estimatedElementsPerCell);
+
     GlyphDependencies glyphDependencies;
     ImageDependencies imageDependencies;
 
@@ -378,7 +383,8 @@ void GeometryTileWorker::parse() {
             continue;
         }
 
-        std::vector<std::string> layerIDs(group.size());
+        std::vector<std::string> layerIDs;
+        layerIDs.reserve(group.size());
         for (const auto& layer : group) {
             layerIDs.push_back(layer->baseImpl->id);
         }

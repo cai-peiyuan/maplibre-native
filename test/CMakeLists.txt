@@ -88,6 +88,7 @@ add_library(
     ${PROJECT_SOURCE_DIR}/test/util/dtoa.test.cpp
     ${PROJECT_SOURCE_DIR}/test/util/geo.test.cpp
     ${PROJECT_SOURCE_DIR}/test/util/grid_index.test.cpp
+    ${PROJECT_SOURCE_DIR}/test/util/hash.test.cpp
     ${PROJECT_SOURCE_DIR}/test/util/http_timeout.test.cpp
     ${PROJECT_SOURCE_DIR}/test/util/image.test.cpp
     ${PROJECT_SOURCE_DIR}/test/util/mapbox.test.cpp
@@ -99,6 +100,7 @@ add_library(
     ${PROJECT_SOURCE_DIR}/test/util/rotation.test.cpp
     ${PROJECT_SOURCE_DIR}/test/util/run_loop.test.cpp
     ${PROJECT_SOURCE_DIR}/test/util/string.test.cpp
+    ${PROJECT_SOURCE_DIR}/test/util/string_indexer.test.cpp
     ${PROJECT_SOURCE_DIR}/test/util/text_conversions.test.cpp
     ${PROJECT_SOURCE_DIR}/test/util/thread.test.cpp
     ${PROJECT_SOURCE_DIR}/test/util/thread_local.test.cpp
@@ -127,6 +129,7 @@ if(MLN_WITH_OPENGL)
         PRIVATE
             ${PROJECT_SOURCE_DIR}/test/api/custom_layer.test.cpp
             ${PROJECT_SOURCE_DIR}/test/gl/bucket.test.cpp
+            ${PROJECT_SOURCE_DIR}/test/gl/enum.test.cpp
             ${PROJECT_SOURCE_DIR}/test/gl/context.test.cpp
             ${PROJECT_SOURCE_DIR}/test/gl/gl_functions.test.cpp
             ${PROJECT_SOURCE_DIR}/test/gl/object.test.cpp
@@ -135,7 +138,7 @@ if(MLN_WITH_OPENGL)
     )
     target_compile_definitions(
         mbgl-test
-        PRIVATE MBGL_RENDER_BACKEND_OPENGL=1
+        PRIVATE MLN_RENDER_BACKEND_OPENGL=1
     )
 endif()
 
@@ -228,4 +231,11 @@ set_property(TARGET mbgl-test PROPERTY FOLDER Core)
 
 if (MLN_WITH_CLANG_TIDY)
     set_target_properties(mbgl-test PROPERTIES CXX_CLANG_TIDY "${CLANG_TIDY_COMMAND}")
+endif()
+
+if (CMAKE_SYSTEM_NAME STREQUAL Linux)
+    target_compile_definitions(
+        mbgl-test
+        PRIVATE USE_CPP_TEST_SERVER
+    )
 endif()
